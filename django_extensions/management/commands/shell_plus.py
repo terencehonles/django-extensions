@@ -126,7 +126,7 @@ class Command(BaseCommand):
 
     def get_ipython_arguments(self, options):
         if self.extra_args:
-            return self.extra_args
+            return list(self.extra_args)
         ipython_args = 'IPYTHON_ARGUMENTS'
         arguments = getattr(settings, ipython_args, [])
         if not arguments:
@@ -135,7 +135,7 @@ class Command(BaseCommand):
 
     def get_notebook_arguments(self, options):
         if self.extra_args:
-            return self.extra_args
+            return list(self.extra_args)
         notebook_args = 'NOTEBOOK_ARGUMENTS'
         arguments = getattr(settings, notebook_args, [])
         if not arguments:
